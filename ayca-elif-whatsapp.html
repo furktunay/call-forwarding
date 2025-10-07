@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <title>WhatsApp açılıyor…</title>
+
+    <script>
+      (function () {
+        // + işareti olmadan, yalnızca ülke kodu + numara (TR: 90...)
+        var numbers = ["905350829090", "905416648998"];
+
+        // Eşit olasılıkla birini seç
+        var chosen = Math.random() < 0.5 ? numbers[0] : numbers[1];
+
+        // (İsteğe bağlı) hazır mesaj eklemek istersen:
+        // var msg = encodeURIComponent("Merhaba, size ulaşmak istiyorum.");
+        // var url = "https://wa.me/" + chosen + "?text=" + msg;
+
+        var url = "https://wa.me/" + chosen; // hazır mesajsız
+
+        // Geçmişi kirletmemek için replace
+        window.location.replace(url);
+      })();
+    </script>
+
+    <!-- JS kapalıysa basit fallback -->
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=https://wa.me/905350829090">
+    </noscript>
+  </head>
+  <body>
+    <p>WhatsApp açılıyor…</p>
+  </body>
+</html>
